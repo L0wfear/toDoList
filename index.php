@@ -21,7 +21,7 @@
 			<li>
 				<span class="item"> <?php echo $items[$i]; ?></span>
 				<a  href="/delete.php?id=<?php echo $i ?>">Delete</a>
-				<a  href="#">Edit</a>
+				<a  href="/edit.php?id=<?php echo $i ?>">Edit</a>
 			</li>
 		<?php endfor; ?>
 		</ul>
