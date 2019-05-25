@@ -15,13 +15,14 @@
 				<span class="item done">Do something </span>
 			</li>
 		<?php  
-			   $items = file("data.php");
+			   //$items = file("data.php");
+				 $items = json_decode(file_get_contents("./json/data.json"), true);
 			   for ($i=0; $i <sizeof($items); $i++):
 		 ?>
 			<li>
-				<span class="item"> <?php echo $items[$i]; ?></span>
-				<a  href="/delete.php?id=<?php echo $i ?>">Delete</a>
-				<a  href="/edit.php?id=<?php echo $i ?>">Edit</a>
+				<span class="item"> <?php echo $items[$i][name]; ?></span>
+				<a  href="/delete.php?id=<?php echo $items[$i][id] ?>">Delete</a>
+				<a  href="/edit.php?id=<?php echo $items[$i][id] ?>">Edit</a>
 			</li>
 		<?php endfor; ?>
 		</ul>
@@ -29,6 +30,7 @@
 			<input class="input" type="text" name="name" placeholder="Type a new item"  autocomplete="off" required>
 			<input type="submit" value="Add" class="submit">
 		</form>
+
 	</div>
 </body>
 </html>
